@@ -4,25 +4,25 @@ public class MaxSumViaDeletion {
     public static int solution(int[] A) {
         boolean isEven = true;
         int result = 0;
-        int firstVal = A[0];
+        int prevVal = A[0];
         
         for (int i = 1; i < A.length; ++i) {
         	if (isEven) {
-        		if (firstVal > A[i]) {
-        			result += (firstVal % 1000000000);
+        		if (prevVal > A[i]) {
+        			result += (prevVal % 1000000000);
         			isEven = false;
-        			firstVal = A[i];
+        			prevVal = A[i];
         		} else {
-        			firstVal = A[i];
+        			prevVal = A[i];
         			isEven = true;
         		}
         	} else {
-        		if (firstVal < A[i]) {
-        			result -= (firstVal % 1000000000);
+        		if (prevVal < A[i]) {
+        			result -= (prevVal % 1000000000);
         			isEven = true;
-        			firstVal = A[i];
+        			prevVal = A[i];
         		} else {
-        			firstVal = A[i];
+        			prevVal = A[i];
         			isEven = false;
         		}
         	}
