@@ -1,19 +1,35 @@
 package ADSPractice;
 
 public class MaxSumViaDeletion {
-    public static long solution(int[] A) {
-        long evenSum = 0;
-        long oddSum = 0;
-
-        for (int number : A) {
-            long newEvenSum = Math.max(evenSum, (oddSum + number));
-            long newOddSum = Math.max(oddSum, (evenSum - number));
-
-            evenSum = newEvenSum;
-            oddSum = newOddSum;
+    public static int solution(int[] A) {
+        boolean isEven = true;
+        int result = 0;
+        int firstVal = A[0];
+        
+        for (int i = 1; i < A.length; ++i) {
+        	if (isEven) {
+        		if (firstVal > A[i]) {
+        			result += (firstVal % 1000000000);
+        			isEven = false;
+        			firstVal = A[i];
+        		} else {
+        			firstVal = A[i];
+        			isEven = true;
+        		}
+        	} else {
+        		if (firstVal < A[i]) {
+        			result -= (firstVal % 1000000000);
+        			isEven = true;
+        			firstVal = A[i];
+        		} else {
+        			firstVal = A[i];
+        			isEven = false;
+        		}
+        	}
+        	if (isEven && i == (A.length - 1)) {
+				result += A[A.length - 1];
+			}
         }
-
-        long result = Math.max(evenSum, oddSum);
         return result % 1000000000;
     }
 
