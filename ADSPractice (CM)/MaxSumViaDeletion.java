@@ -31,7 +31,7 @@ public class MaxSumViaDeletion {
 			}
         }
         return result % 1000000000;
-    }
+    } // O(n)
 
     public static void main(String[] args) {
         System.out.println(solution(new int[]{4, 1, 2, 3}));
