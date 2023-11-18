@@ -53,7 +53,7 @@ public class SameMaxSum {
 		} else {
 			return result;
 		}
-    } // O(n^2), hon 40p nhieu :))
+    } // O(n^2), tam 47 phut :))
 
     public static void main(String[] args) {
     	System.out.println(solution(new int[]{51, 71, 17, 42}, 4));
